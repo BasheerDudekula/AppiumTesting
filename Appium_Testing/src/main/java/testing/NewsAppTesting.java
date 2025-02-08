@@ -10,15 +10,15 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class FlightApptesting {
+public class NewsAppTesting {
 	 
     public static void main(String[] args) {
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Medium Phone API 35");
-            capabilities.setCapability("appPackage", "com.example.flightapp");
-            capabilities.setCapability("appActivity", "com.example.flightapp.ui.MainActivity"); 
+            capabilities.setCapability("appPackage", "com.example.newsapp");
+            capabilities.setCapability("appActivity", "com.example.newsapp.ui.MainActivity"); 
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
  
             AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
@@ -27,20 +27,20 @@ public class FlightApptesting {
             Thread.sleep(3000);
  
             // Click on the first movie item in the RecyclerView
-            List<WebElement> flightItems = driver.findElements(MobileBy.className("android.widget.TextView"));
-            if (!flightItems.isEmpty()) {
-                flightItems.get(0).click();
+            List<WebElement> newsItems = driver.findElements(MobileBy.className("android.widget.TextView"));
+            if (!newsItems.isEmpty()) {
+                newsItems.get(0).click();
             }
  
             // Wait for the details screen
             Thread.sleep(2000);
  
             // Verify movie details
-            WebElement flightName = driver.findElement(MobileBy.id("com.example.flightapp:id/airlineName"));
-            System.out.println("Flight Name: " + flightName.getText());
+            WebElement newsTitle = driver.findElement(MobileBy.id("com.example.newsapp:id/titleTextView"));
+            System.out.println("News Title : " + newsTitle.getText());
  
-            WebElement flightDescription = driver.findElement(MobileBy.id("com.example.flightapp:id/Country"));
-            System.out.println("Flight Description: " + flightDescription.getText());
+            WebElement newsDescription = driver.findElement(MobileBy.id("com.example.newsapp:id/descriptionTextView"));
+            System.out.println("News Description: " + newsDescription.getText());
  
             // Close the driver
             driver.quit();
