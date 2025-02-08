@@ -35,7 +35,7 @@ public class NewsAppTesting {
             // Wait for the details screen
             Thread.sleep(2000);
  
-            // Verify movie details
+            // Verify news details
             WebElement newsTitle = driver.findElement(MobileBy.id("com.example.newsapp:id/titleTextView"));
             System.out.println("News Title : " + newsTitle.getText());
  
