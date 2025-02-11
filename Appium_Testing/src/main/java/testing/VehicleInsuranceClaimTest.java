@@ -142,7 +142,19 @@ public class VehicleInsuranceClaimTest {
          		} else {
          			System.out.println("claim is not updated");
          	}
-
+         	
+         	//Navigation back to dashboard
+         	Thread.sleep(2000);
+         	WebElement dashboard = driver.findElement(By.id("com.example.vehicleinsuranceclaim:id/btnDashboard"));
+         	dashboard.click();
+         	
+         	System.out.println("Navigated back from claim submission to Dashboard");
+         	
+         	Thread.sleep(2000);
+         	WebElement Logout = driver.findElement(By.id("com.example.vehicleinsuranceclaim:id/logout_button"));
+         	Logout.click();
+         	
+         	System.out.println("Logout Successfully");
 			
 			driver.quit();
 
